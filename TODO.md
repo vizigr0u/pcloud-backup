@@ -1,0 +1,3 @@
+ - better logs (esp. inotifier)
+ - fix healthcheck
+ - image versionning?

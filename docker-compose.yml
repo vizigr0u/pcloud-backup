@@ -1,0 +1,16 @@
+services:
+  pcloud_backup:
+    container_name: pcloud-backup
+    image: vizigr0u/pcloud-backup:latest
+    user: 1000:1000
+    env_file:
+      - .env
+    volumes:
+      - /dir/to/watch:/watched
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "/app/healthcheck.sh" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
